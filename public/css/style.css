@@ -131,8 +131,8 @@ body {
 
 @media screen and (max-width:500px) {
   .container {
-    width: 330px;
-    height: 330px;
+    width: 350px;
+    height: 350px;
   }
 
   .card .front img {
@@ -140,6 +140,6 @@ body {
   }
 
   .card .back img {
-    width: 55px;
+    width: 65px;
   }
 }
