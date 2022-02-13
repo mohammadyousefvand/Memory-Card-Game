@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #32a852;
+}
+
+.container {
+  width: 450px;
+  height: 450px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cards {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card {
+  perspective: 1000px;
+  width: calc(100% / 4 - 10px);
+  height: calc(100% / 4 - 10px);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.cards,
+.card,
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  pointer-events: none;
+  backface-visibility: hidden;
+  transition: transform .25s linear;
+}
+
+.card.shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-13px);
+  }
+
+  40% {
+    transform: translateX(13px);
+  }
+
+  60% {
+    transform: translateX(-8px);
+  }
+
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+.card .front img {
+  width: 19px;
+}
+
+.card .back img {
+  width: 75px;
+}
+
+.card .back {
+  transform: rotateY(-180deg);
+}
+
+.card.rotate .back {
+  transform: rotateY(0deg);
+}
+
+.card.rotate .front {
+  transform: rotateY(180deg);
+}
+
+.restart {
+  width: 150px;
+  height: 50px;
+  background-color: #eee;
+  margin-top: 30px;
+  border: none;
+  outline: none;
+  color: #32a852;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  transform: scale(0);
+  transition: all .3s;
+}
+
+.show-btn {
+  transform: scale(1);
+}
+
+@media screen and (max-width:500px) {
+  .container {
+    width: 330px;
+    height: 330px;
+  }
+
+  .card .front img {
+    width: 14px;
+  }
+
+  .card .back img {
+    width: 55px;
+  }
+}
